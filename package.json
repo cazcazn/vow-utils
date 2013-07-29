@@ -1,0 +1,11 @@
+{
+  "name": "vow-utils",
+  "version": "0.0.0",
+  "description": "Utility wrapper for vow promises - node specific",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Caroline Glassberg-Powell",
+  "license": "BSD"
+}
