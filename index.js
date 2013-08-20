@@ -11,7 +11,7 @@ makeNodeResolver = function(promise) {
     if(err) {
       promise.reject(err);
     } else if (arguments.length > 2) {
-      promise.fulfill(slice.call(arguments, 1));
+      promise.fulfill(slice(arguments, 1));
     } else {
       promise.fulfill(res);
     }
@@ -31,11 +31,11 @@ _apply = function(func, thisArg, args) {
       
 // Invokes a node object with the specified function
 Vow.ninvoke = function(object, name /*...args*/) {
-  return _apply(object[name], object, slice.call(arguments, 2));
+  return _apply(object[name], object, slice(arguments, 2));
 }
 
 Vow.ncall = function(func /*...args*/) {
-  return _apply(func, this, slice.call(arguments, 1));
+  return _apply(func, this, slice(arguments, 1));
 }
 
 
