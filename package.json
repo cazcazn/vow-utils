@@ -1,11 +1,18 @@
 {
   "name": "vow-utils",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "description": "Utility wrapper for vow promises - node specific",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Caroline Glassberg-Powell",
-  "license": "BSD"
+  "license": "BSD",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cazcazn/vow-utils"
+  },
+  "dependencies": {
+    "vow": "0.3.10"
+  }
 }

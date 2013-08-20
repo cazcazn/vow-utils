@@ -1,5 +1,9 @@
 Vow = require('vow');
 
+slice = function(args, n) {
+  return Array.prototype.slice.call(args, n);
+}
+
 // Takes a promise and resolves it node style
 makeNodeResolver = function(promise) {
   var self = this;
@@ -7,7 +11,7 @@ makeNodeResolver = function(promise) {
     if(err) {
       promise.reject(err);
     } else if (arguments.length > 2) {
-      promise.fulfill(Array.prototype.slice.call(arguments, 1));
+      promise.fulfill(slice.call(arguments, 1));
     } else {
       promise.fulfill(res);
     }
@@ -28,15 +32,6 @@ _apply = function(func, thisArg, args) {
 // Invokes a node object with the specified function
 Vow.ninvoke = function(object, name /*...args*/) {
   return _apply(object[name], object, slice.call(arguments, 2));
-  //var nodeArgs = Array.prototype.slice.call(arguments, 2);
-  //var promise = Vow.promise();
-
-  //// Create a node function and push it onto the arguments
-  //nodeArgs.push(makeNodeResolver(promise));
-
-  //// Call the object's node argument
-  //object[name].apply(object, nodeArgs);
-  //return promise;
 }
 
 Vow.ncall = function(func /*...args*/) {
